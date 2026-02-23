@@ -4,7 +4,7 @@
 > calculating the "real" vs "marketed" qubit count from public calibration data**
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18475832-blue)](https://doi.org/10.5281/zenodo.18475832)
+[![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2F74XGR-blue)](https://doi.org/10.17605/OSF.IO/74XGR)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org)
 [![CI](https://github.com/UniversalModel/Quantum-triadic-autopsy/actions/workflows/ci.yml/badge.svg)](https://github.com/UniversalModel/Quantum-triadic-autopsy/actions/workflows/ci.yml)
 [![Challenge](https://img.shields.io/badge/Challenge-0.618%20open-gold)](https://github.com/UniversalModel/Quantum-triadic-autopsy#the-0618-challenge)
@@ -212,7 +212,7 @@ the tools on hardware we do not have access to and reporting the results.
   year      = {2026},
   publisher = {GitHub},
   url       = {https://github.com/UniversalModel/Quantum-triadic-autopsy},
-  doi       = {10.5281/zenodo.18475832}
+  doi       = {10.17605/OSF.IO/74XGR}
 }
 ```
 
@@ -222,7 +222,9 @@ the tools on hardware we do not have access to and reporting the results.
 
 | | |
 |---|---|
-| Full theory | [U-Theory v25.2 -- Zenodo](https://doi.org/10.5281/zenodo.18475832) |
+| Full theory | [U-Theory v25.2 -- Zenodo](https://zenodo.org/records/18475832) |
+| OSF (DOI) | [osf.io/74xgr](https://doi.org/10.17605/OSF.IO/74XGR) |
+| GitHub Release | [TheoryofEverything](https://github.com/UniversalModel/core/releases/tag/TheoryofEverything) |
 | Author | Petar Nikolov, 2026 |
 | Contact | petar@u-model.org |
 | Website | [U-Model.org](https://u-model.org) |
