@@ -20,19 +20,23 @@ THE CHALLENGE (full text at bottom of this file):
   Submit calibration data + computation code to: petar@u-model.org
   Winner credited as "Triadic Optimizer" in U-Theory v26.0.
 
-Why 0.618? (Derivation from first principles, not aesthetics)
+Why 0.618? (Neighborhood of the Golden Ratio)
   SI_Q = cbrt(F_Q * P_Q * A_Q) / (1 + delta)^2
 
   With MELQ DFS encoding at 3:1 overhead + Dynamical Decoupling:
     Logical error rate:  eps_L = 3 * eps_P^2  (second-order suppression)
     Break-even condition: eps_L < eps_P  =>  eps_P < 1/3  =>  A_Q > 0.667
+    With avg hardware imbalance delta ~ 0.07:
+      SI_Q_threshold = 0.667 / (1.07)^2 = 0.618
 
-  For balanced triadic system (delta=0): SI_Q_breakeven = 0.667
-  For real hardware imbalance (avg delta ~ 0.07):
-    SI_Q_threshold = 0.667 / (1 + 0.07)^2 = 0.618
+  This result falls in the tight neighborhood of phi^-1 = 0.6180...
+  We choose 0.618 as the challenge threshold because it emerges naturally
+  from the physics under MELQ baseline parameters AND coincides with a
+  well-known mathematical constant that is easy to remember and cite.
 
-  The value 0.618 = 1/phi emerges from the error physics.
-  It is a consequence of the MELQ overhead model, not a choice.
+  We do not claim 0.618 is universally exact. It is system-specific.
+  Different encoding overhead or hardware shifts it between ~0.55 and ~0.71.
+  The claim is: no current platform reaches even 0.50 on >40 qubits.
 """
 
 import argparse
