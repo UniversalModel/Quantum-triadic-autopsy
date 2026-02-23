@@ -380,8 +380,12 @@ def write_report(results: list, data: dict, out_path: str) -> None:
         f.write(text)
     print(f"[+] Report saved -> {out_path}")
     print()
-    # Quick console summary
-    print(text[:1200])
+    # Quick console summary (safe for Windows cp1251 terminals)
+    try:
+        print(text[:1200])
+    except UnicodeEncodeError:
+        safe = text[:1200].encode("cp1251", errors="replace").decode("cp1251")
+        print(safe)
 
 
 # ── Entry point ──────────────────────────────────────────────────────────────
