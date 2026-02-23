@@ -1,152 +1,225 @@
-# triadic-autopsy
+﻿# Quantum Triadic Autopsy
 
-**U-Theory v25.2 — Triadic Diagnostic Tools for Quantum Hardware**
+> **U-Theory v25.2 — Four diagnostic tools that expose why quantum computers fail to scale**
 
-Three scripts that apply U-Theory's SI_Q metric to real IBM Quantum calibration data,
-exposing the _Sisyphus Error_ at the heart of current NISQ processors.
-
-> *"The industry measures qubits. U-Theory measures useful computation."*
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18475832-blue)](https://doi.org/10.5281/zenodo.18475832)
+[![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org)
+[![Theory](https://img.shields.io/badge/Framework-U--Theory%20v25.2-purple)](https://u-model.org)
 
 ---
 
-## The Core Idea
+## The Problem in One Number
 
-U-Theory (Nikolov, 2026) proposes that quantum hardware fails to scale not because of
-insufficient qubit count, but because of **triadic imbalance** — a systematic mismatch
-between Form (coherence), Position (connectivity), and Action (gate fidelity).
+IBM Brisbane (127 qubits, 2024) — **average SI_Q = 0.11**
 
-The stability index:
+That means **99% of qubits are in the Dead Zone** (SI_Q < 0.40).  
+IBM's roadmap counts qubits. Nobody counts *useful* computation.
+
+This repo does.
+
+---
+
+## The SI_Q Metric
+
+U-Theory quantifies hardware health through three triadic components:
 
 ```
 SI_Q = cbrt(F_Q * P_Q * A_Q) / (1 + delta)^2
 
-F_Q   = min(1, (T1 + T2) / 500 us)              -- Form     (coherence)
-P_Q   = min(1, n_neighbors / 6)                  -- Position (connectivity)
-A_Q   = max(0, 1 - gate_err*100 - ro_err*10)     -- Action   (gate fidelity)
-delta = (max(F,P,A) - min(F,P,A)) / max(F,P,A)   -- Triadic imbalance
+F_Q   = min(1, (T1 + T2) / 500 us)             -- Form     (coherence)
+P_Q   = min(1, neighbors / 6)                   -- Position (connectivity)
+A_Q   = max(0, 1 - gate_err*100 - ro_err*10)   -- Action   (gate fidelity)
+delta = (max(F,P,A) - min(F,P,A)) / max(F,P,A) -- Triadic imbalance
 ```
 
-**Threshold for quantum utility:** SI_Q >= 0.618 (Golden Ratio)
-**Dead zone:** SI_Q < 0.400
+| SI_Q range | Zone | Meaning |
+|---|---|---|
+| >= 0.618 | **Golden Zone** | Quantum utility threshold |
+| 0.40 – 0.617 | Warning Zone | Marginal — error-prone |
+| < 0.40 | **Dead Zone** | Computationally useless |
 
-Current IBM Brisbane: avg SI_Q ~ 0.11. U-Core simulation target: 0.71.
+**No current hardware on >40 qubits reaches 0.618.**
 
 ---
 
-## Scripts
+## The Four Tools
 
-### 1. `IBM_Q_SI_Q_Autopsy.py` — The Diagnostic
+### 1. `IBM_Q_SI_Q_Autopsy.py` — Qubit-level Diagnostic
 
-Computes SI_Q for every qubit on a real IBM backend using public calibration data.
-Generates a chip heatmap and per-qubit breakdown.
+Runs a full triadic autopsy on any IBM Quantum backend using public calibration data.
 
 ```bash
-# No IBM account needed (uses public snapshot):
+# No IBM account needed — uses 127-qubit Brisbane snapshot:
 python IBM_Q_SI_Q_Autopsy.py --demo
 
-# With IBM account (pip install qiskit-ibm-runtime):
+# With IBM account:
 python IBM_Q_SI_Q_Autopsy.py --backend ibm_brisbane
-
-# Output to specific folder:
-python IBM_Q_SI_Q_Autopsy.py --demo --out-dir results/
 ```
 
-**Output files:**
-- `<backend>_si_q_autopsy.png` — chip heatmap coloured by SI_Q
-- `<backend>_si_q_bars.png`    — F/P/A triadic decomposition per qubit
-- `<backend>_si_q_report.txt`  — full per-qubit breakdown
+**Output:**
+- `*_si_q_autopsy.png` — chip heatmap coloured by SI_Q (red = dead, green = alive)
+- `*_si_q_bars.png` — per-qubit F / P / A triadic decomposition
+- `*_si_q_report.txt` — full numerical breakdown
+
+**Key result (Brisbane 127q):** avg SI_Q = 0.11 · 99.2% qubits in Dead Zone
 
 ---
 
-### 2. `sisyphus_diagram.py` — The Triple Diagram
+### 2. `sisyphus_diagram.py` — The Triple Lie
 
-The "Sisyphus Diagram" — three graphs using IBM's own public data:
-- **Graph 1:** Physical qubit count over time (what IBM publishes — exponential)
-- **Graph 2:** Useful logical qubits over time (what nobody shows — flat line)
-- **Graph 3:** U-Core MELQ projection 2026-2028 (the alternative — linear)
+Four-panel diagram built from IBM's own public data:
+
+| Panel | What it shows |
+|---|---|
+| Physical qubits | Exponential growth — IBM's headline number |
+| Useful logical qubits | Flat line of zero — what nobody shows |
+| U-Core MELQ projection | 4 to 14 to 32 logical qubits by 2028 |
+| Dead Zone ratio | The widening gap |
 
 ```bash
 python sisyphus_diagram.py
 python sisyphus_diagram.py --out my_diagram.png
 ```
 
-**Data sources:** IBM roadmap (public), Kim et al. Nature 618 (2023),
-Tilly et al. (2022), Google Willow announcement (2024).
+> *"Sisyphus pushes the boulder up. The boulder stays at zero useful qubits."*
+
+Data sources: IBM roadmap (public), Kim et al. Nature 618 (2023), Tilly et al. (2022), Google Willow announcement (2024).
 
 ---
 
 ### 3. `golden_ratio_challenge.py` — The Open Challenge
 
-Tracks which hardware platforms have achieved SI_Q >= 0.618 on >40 qubits.
-Generates a leaderboard + shareable challenge declaration.
+Tracks who has crossed SI_Q >= 0.618 on real hardware with >40 qubits.
+Generates a live leaderboard and shareable challenge declaration.
 
 ```bash
-# Show current standings:
 python golden_ratio_challenge.py
-
-# Add a new submission (interactive):
 python golden_ratio_challenge.py --add-entry
-
-# Save to specific folder:
 python golden_ratio_challenge.py --out-dir results/
 ```
 
-**Current standings (estimated from public data):**
+**Current leaderboard (Feb 2026):**
 
 | Platform | Qubits | SI_Q | Status |
-|----------|--------|------|--------|
-| Quantinuum H2-1 | 32 | 0.47 | below 40q threshold |
-| QuEra Aquila | 256 | 0.39 | estimated |
-| IBM Heron R2 | 133 | 0.36 | estimated |
-| Google Willow | 105 | 0.34 | estimated |
-| IBM Brisbane | 127 | 0.32 | estimated |
-| Google Sycamore | 53 | 0.28 | estimated |
+|---|---|---|---|
+| Quantinuum H2-1 | 32 | 0.47 | Below 40q threshold |
+| QuEra Aquila | 256 | 0.39 | Estimated |
+| IBM Heron R2 | 133 | 0.36 | Estimated |
+| Google Willow | 105 | 0.34 | Estimated |
+| IBM Brisbane | 127 | 0.32 | Measured |
+| Google Sycamore | 53 | 0.28 | Estimated |
 
-**Hardware gap to 0.618: 0.148**
+**Gap to 0.618: 0.148** — no company has crossed it.
 
-Want to challenge these numbers? Run the autopsy on your backend and submit.
+---
+
+### 4. `u_core_simulator_v25_2.py` — The Alternative Architecture
+
+Full simulation of the U-Core quantum processor — a Gaussian Concentric QPU
+designed from the ground up to achieve SI_Q >= 0.618.
+
+```bash
+python u_core_simulator_v25_2.py
+```
+
+**Architecture features:**
+- 4-ring Gaussian topology: Core(1) -> Mantle(6) -> InnerCrust(12) -> OuterCrust(24)
+- MELQ auto-pairing: short-lived memory qubits / long-lived entanglement qubits
+- Dynamical Decoupling (DD) scheduler for idle cycles
+- ZZ crosstalk model (zone-aware)
+- SI_Q temporal monitor — tracks VQA gradient degradation
+- Qiskit QuantumCircuit export
+
+**Simulation results vs IBM Brisbane:**
+
+| Metric | IBM Brisbane | U-Core Simulation |
+|---|---|---|
+| Avg SI_Q | 0.11 | **0.71** |
+| Dead Zone qubits | 99.2% | **0%** |
+| Logical overhead ratio | Surface Code: 10,000:1 | MELQ: 3-5:1 |
 
 ---
 
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/triadic-autopsy
-cd triadic-autopsy
+git clone https://github.com/UniversalModel/Quantum-triadic-autopsy
+cd Quantum-triadic-autopsy
 pip install -r requirements.txt
 
-# Optional: IBM live data
+# Optional: real IBM live data
 pip install qiskit-ibm-runtime
 ```
+
+**Requirements:** `numpy>=1.24`, `matplotlib>=3.7`, `networkx>=3.0`
+
+---
+
+## Run All at Once
+
+```bash
+python run_all.py                                  # demo mode
+python run_all.py --live --backend ibm_brisbane    # live mode
+```
+
+All output goes to `results/`.
 
 ---
 
 ## The 0.618 Golden Ratio Challenge
 
+**Falsifiable. Public. Open to everyone.**
+
 Achieve average SI_Q >= 0.618 on real quantum hardware with >40 physical qubits.
 
-- Submit: calibration data + computation code to **petar@u-model.org**
-- Reward: credited as "Triadic Optimizer 2026/27" in U-Theory v26.0
+- Run `IBM_Q_SI_Q_Autopsy.py --backend YOUR_BACKEND`
+- Submit calibration data + code to **petar@u-model.org**
+- Reward: credited as *"Triadic Optimizer 2026/27"* in U-Theory v26.0
+
+If any team achieves this — the U-Core architecture is validated.  
+If no team achieves this by 2028 — Prediction QC-P1 is confirmed.
 
 ---
 
-## Falsifiable Predictions (U-Theory v25.2, QC.0)
+## Falsifiable Predictions (U-Theory v25.2)
 
-These predictions can disprove the theory — try:
+These predictions can **disprove** the theory:
 
-| ID | Prediction | How to falsify |
-|----|-----------|----------------|
-| QC-P1 | TQC achieves SI_Q > 0.65 on 43-qubit model | Show standard VQE on 86q beats TQC on 43q |
-| QC-P3 | Triadic VQE reduces gate depth 30%+ for LiH | Show Qiskit Level-3 transpiler matches or beats |
-| QC-P17 | delta < 0.3 guarantees polynomial VQA gradient | Show random ansatz with delta<0.3 still has exponential gradient |
+| ID | Prediction | Falsification method |
+|---|---|---|
+| QC-P1 | TQC achieves SI_Q > 0.65 on 43-qubit U-Core | Show standard VQE on 86q beats TQC on 43q |
+| QC-P3 | Triadic VQE reduces gate depth 30%+ vs Qiskit Level-3 | Show transpiler matches or beats on LiH |
+| QC-P17 | delta < 0.3 guarantees polynomial VQA gradient | Show random ansatz with delta<0.3 has exponential gradient |
 
 ---
 
 ## Theory Reference
 
-- **Full theory:** [U-Theory v25.2](https://zenodo.org/records/18475832)  
-- **DOI:** 10.5281/zenodo.18475832  
-- **arXiv preprint:** coming Q1 2026
+| | |
+|---|---|
+| Full theory | [U-Theory v25.2 — Zenodo](https://doi.org/10.5281/zenodo.18475832) |
+| DOI | 10.5281/zenodo.18475832 |
+| Author | Petar Nikolov, 2026 |
+| Contact | petar@u-model.org |
+| Website | [U-Model.org](https://u-model.org) |
+
+---
+
+## Citation
+
+```bibtex
+@software{nikolov2026quantum_triadic_autopsy,
+  author    = {Nikolov, Petar},
+  title     = {Quantum Triadic Autopsy -- U-Theory v25.2 Diagnostic Tools},
+  year      = {2026},
+  publisher = {GitHub},
+  url       = {https://github.com/UniversalModel/Quantum-triadic-autopsy},
+  doi       = {10.5281/zenodo.18475832}
+}
+```
+
+---
 
 **Copyright (c) 2026 Petar Nikolov. CC BY 4.0**  
-U-Model.org
+*"The industry measures qubits. U-Theory measures useful computation."*
