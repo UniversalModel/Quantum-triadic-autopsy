@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Submit calibration data by email"
+    url: "mailto:petar@u-model.org?subject=[SI_Q]%20Validation%20Submission"
+    about: "Send your *_si_q_report.txt directly to the maintainer"
+  - name: "Theory reference (Zenodo)"
+    url: "https://doi.org/10.5281/zenodo.18475832"
+    about: "Full U-Theory v25.2 documentation"

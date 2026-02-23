@@ -1,0 +1,86 @@
+name: "Validation Submission"
+description: "Submit your hardware SI_Q measurement to the leaderboard"
+labels: ["validation", "hardware"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Hardware Validation Submission
+        Thank you for running the tools on real quantum hardware.
+        Fill in as many fields as you can — estimates are welcome.
+
+  - type: input
+    id: platform
+    attributes:
+      label: "Platform / Backend name"
+      placeholder: "e.g. ibm_torino, Quantinuum H2-1, IQM Garnet"
+    validations:
+      required: true
+
+  - type: input
+    id: provider
+    attributes:
+      label: "Provider"
+      placeholder: "e.g. IBM, Quantinuum, IQM, Google"
+    validations:
+      required: true
+
+  - type: input
+    id: num_qubits
+    attributes:
+      label: "Number of physical qubits used"
+      placeholder: "e.g. 127"
+    validations:
+      required: true
+
+  - type: input
+    id: avg_si_q
+    attributes:
+      label: "Average SI_Q (chip-wide)"
+      placeholder: "e.g. 0.3412"
+    validations:
+      required: true
+
+  - type: input
+    id: dead_zone_pct
+    attributes:
+      label: "% qubits in Dead Zone (SI_Q < 0.40)"
+      placeholder: "e.g. 87.4%"
+
+  - type: textarea
+    id: report_summary
+    attributes:
+      label: "Report summary (paste from *_si_q_report.txt)"
+      placeholder: "Paste the top ~20 lines of the report file here"
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: "Calibration date (YYYY-MM-DD)"
+      placeholder: "2026-02-23"
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: "Data source (link or description)"
+      placeholder: "IBM public calibration / live run / paper DOI"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Notes / anomalies"
+      placeholder: "Any deviations from default settings, known issues, etc."
+
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: "Agreement"
+      options:
+        - label: "I ran `IBM_Q_SI_Q_Autopsy.py` or computed SI_Q using the same formula"
+          required: true
+        - label: "I consent to this data being added to the leaderboard (CC BY 4.0)"
+          required: true

@@ -1,0 +1,46 @@
+name: "Bug Report"
+description: "Something doesn't run correctly"
+labels: ["bug"]
+body:
+  - type: input
+    id: os
+    attributes:
+      label: "OS"
+      placeholder: "e.g. Windows 11, Ubuntu 22.04, macOS 14"
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: "Python version"
+      placeholder: "e.g. 3.11.4"
+    validations:
+      required: true
+
+  - type: input
+    id: packages
+    attributes:
+      label: "Key package versions (numpy, matplotlib, networkx)"
+      placeholder: "numpy 1.26.0, matplotlib 3.8.0, networkx 3.2"
+
+  - type: input
+    id: command
+    attributes:
+      label: "Command that failed"
+      placeholder: "python run_all.py"
+    validations:
+      required: true
+
+  - type: textarea
+    id: traceback
+    attributes:
+      label: "Full error traceback"
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected behaviour"
