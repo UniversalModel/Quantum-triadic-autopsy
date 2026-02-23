@@ -1,0 +1,5 @@
+numpy>=1.24
+matplotlib>=3.7
+
+# Optional: for live IBM backend data (not required for --demo mode)
+# qiskit-ibm-runtime>=0.20

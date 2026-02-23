@@ -9,8 +9,10 @@ venv/
 # Output files (generated — not committed)
 results/
 *.png
-*.txt
-!README.md
+
+# Generated text reports (but keep requirements.txt)
+*_report.txt
+*_si_q_report.txt
 golden_ratio_entries.json
 
 # Jupyter
