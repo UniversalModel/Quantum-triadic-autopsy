@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run full demo pipeline
-        run: python run_all.py --demo
+        run: python run_all.py
 
       - name: Verify output files exist
         run: |
@@ -33,7 +33,6 @@ jobs:
           test -f results/golden_ratio_leaderboard.png
           test -f results/golden_ratio_report.txt
           test -f results/sisyphus_diagram.png
-          # Autopsy outputs use date-stamped names; check at least one exists
           ls results/*si_q* | head -1
           echo "All expected outputs present."
 
