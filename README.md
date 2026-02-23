@@ -184,6 +184,14 @@ pip install -r requirements.txt
 pip install qiskit-ibm-runtime
 ```
 
+**Live IBM access — one-time token setup:**
+```python
+from qiskit_ibm_runtime import QiskitRuntimeService
+QiskitRuntimeService.save_account(channel="ibm_quantum", token="YOUR_IBM_TOKEN", overwrite=True)
+# Token: https://quantum.ibm.com/ -> Account -> API token
+```
+Then run: `python IBM_Q_SI_Q_Autopsy.py --backend ibm_brisbane`
+
 **Requirements:** `numpy >= 1.24`, `matplotlib >= 3.7`, `networkx >= 3.0`, Python 3.9+
 
 ---
