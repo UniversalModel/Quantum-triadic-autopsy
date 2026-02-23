@@ -1,11 +1,12 @@
 ﻿# Quantum Triadic Autopsy
 
-> **U-Theory v25.2 — Four diagnostic tools that expose why quantum computers fail to scale**
+> **Open-source diagnostic tools for NISQ quantum hardware stability —  
+> calculating the "real" vs "marketed" qubit count from public calibration data**
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18475832-blue)](https://doi.org/10.5281/zenodo.18475832)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org)
-[![Theory](https://img.shields.io/badge/Framework-U--Theory%20v25.2-purple)](https://u-model.org)
+[![SI_Q Challenge](https://img.shields.io/badge/Challenge-0.618%20Golden%20Ratio-gold)](https://github.com/UniversalModel/Quantum-triadic-autopsy#the-0618-golden-ratio-challenge)
 
 ---
 
