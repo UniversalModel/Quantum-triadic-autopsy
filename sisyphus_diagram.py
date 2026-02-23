@@ -26,6 +26,37 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from matplotlib.patches import FancyArrowPatch
 
+# ── Language configuration ────────────────────────────────────────────────────
+# Set to 'bg' for Bulgarian (local presentations)
+LANGUAGE = 'en'
+
+LABELS = {
+    'en': {
+        'graph1_title': "GRAPH 1 — Physical Qubits\n(What IBM publishes)",
+        'graph2_title': "GRAPH 2 — Useful Logical Qubits\n(What nobody shows)",
+        'graph3_title': "GRAPH 3 — U-Core MELQ Projection\n(43 physical -> up to 32 logical)",
+        'graph4_title': (
+            "THE TRUE METRIC: Useful Logical / Physical Qubits (%)\n"
+            "IBM measures the height of the pyramid. U-Theory measures whether it reaches the summit."
+        ),
+        'y4_label': "Useful Logical / Physical Qubits (%)",
+    },
+    'bg': {
+        'graph1_title': "ГРАФИК 1 — Физически кубити\n(Това IBM публикуват)",
+        'graph2_title': "ГРАФИК 2 — Полезни Логически Кубити\n(Никой не го показва)",
+        'graph3_title': "ГРАФИК 3 — U-Core MELQ Прогноза\n(43 физически → до 32 логически)",
+        'graph4_title': (
+            "ИСТИНСКАТА МЕТРИКА:  Полезни логически кубити / Физически кубити (%)\n"
+            "IBM мери дължина на пирамидата. U-Theory мери дали достига върха."
+        ),
+        'y4_label': "Полезни Логически / Физически Кубити (%)",
+    },
+}
+
+def L(key: str) -> str:
+    """Return the label in the configured language."""
+    return LABELS.get(LANGUAGE, LABELS['en'])[key]
+
 # ── Public-record data points ────────────────────────────────────────────────
 # Sources:
 #   IBM roadmap: https://research.ibm.com/blog/ibm-quantum-roadmap-2025
@@ -108,7 +139,7 @@ def build_sisyphus_diagram(out_path: str) -> None:
     ax1.plot(g_years, g_vals, "s--", color="#9b59b6",
              lw=2, ms=6, label="Google Physical Qubits", zorder=3)
     ax1.set_yscale("log")
-    ax1.set_title("ГРАФИК 1 — Физически кубити\n(Това IBM публикуват)", color=LIGHT,
+    ax1.set_title(L('graph1_title'), color=LIGHT,
                   fontsize=10, pad=8)
     ax1.set_xlabel("Year", color=LIGHT, fontsize=9)
     ax1.set_ylabel("Physical Qubits (log scale)", color=LIGHT, fontsize=9)
@@ -127,7 +158,7 @@ def build_sisyphus_diagram(out_path: str) -> None:
              lw=2.5, ms=7, label="Useful Logical Qubits\n(chemical accuracy VQE)")
     ax2.axhline(y=0.5, color="#e74c3c", lw=1, linestyle=":", alpha=0.4)
     ax2.set_ylim(-0.3, 10)
-    ax2.set_title("ГРАФИК 2 — Полезни Логически Кубити\n(Никой не го показва)", color=LIGHT,
+    ax2.set_title(L('graph2_title'), color=LIGHT,
                   fontsize=10, pad=8)
     ax2.set_xlabel("Year", color=LIGHT, fontsize=9)
     ax2.set_ylabel("Useful Logical Qubits\n(chemical accuracy)", color=LIGHT, fontsize=9)
@@ -155,7 +186,7 @@ def build_sisyphus_diagram(out_path: str) -> None:
     ax3.text(uc_years[0], UCORE_LOGICAL[2028] + 0.8,
              "32 logical qubits — enzyme simulation", color="#f1c40f", fontsize=8)
     ax3.set_ylim(0, 45)
-    ax3.set_title("ГРАФИК 3 — U-Core MELQ Прогноза\n(43 физически → до 32 логически)", color=LIGHT,
+    ax3.set_title(L('graph3_title'), color=LIGHT,
                   fontsize=10, pad=8)
     ax3.set_xlabel("Year", color=LIGHT, fontsize=9)
     ax3.set_ylabel("Useful Logical Qubits", color=LIGHT, fontsize=9)
@@ -188,12 +219,8 @@ def build_sisyphus_diagram(out_path: str) -> None:
                  f"{logic} / {phys}\n({ratio:.2f}%)",
                  ha="center", va="bottom", color=LIGHT, fontsize=9)
 
-    ax4.set_ylabel("Useful Logical / Physical Qubits (%)", color=LIGHT, fontsize=10)
-    ax4.set_title(
-        "ИСТИНСКАТА МЕТРИКА:  Полезни логически кубити / Физически кубити (%)\n"
-        "IBM мери дължина на пирамидата. U-Theory мери дали достига върха.",
-        color=LIGHT, fontsize=11, pad=10
-    )
+    ax4.set_ylabel(L('y4_label'), color=LIGHT, fontsize=10)
+    ax4.set_title(L('graph4_title'), color=LIGHT, fontsize=11, pad=10)
     ax4.tick_params(colors=LIGHT, labelsize=9)
     ax4.spines[:].set_color("#333355")
     ax4.set_facecolor("#0d0d1a")
@@ -220,7 +247,11 @@ def main():
     )
     parser.add_argument("--out", default="sisyphus_diagram.png",
                         help="Output PNG path (default: sisyphus_diagram.png)")
+    parser.add_argument("--lang", default="en", choices=["en", "bg"],
+                        help="Label language: en (default) or bg (Bulgarian)")
     args = parser.parse_args()
+    global LANGUAGE
+    LANGUAGE = args.lang
     build_sisyphus_diagram(args.out)
     print("[OK] Done. Share Graph 1 first, then Graph 2 will be the surprise.")
 
