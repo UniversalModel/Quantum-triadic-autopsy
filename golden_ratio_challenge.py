@@ -198,6 +198,15 @@ def save_entries(entries: list, path: str) -> None:
         json.dump(entries, f, indent=2, ensure_ascii=False)
 
 
+def is_sim(entry: dict) -> bool:
+    """Return True if entry represents a simulation (not real hardware)."""
+    return (
+        "simulation" in entry.get("platform", "").lower()
+        or "simulation" in entry.get("notes", "").lower()
+        or "sim" in entry.get("source", "").lower()
+    )
+
+
 def rank_entries(entries: list) -> list:
     """Sort by SI_Q descending, assign rank numbers."""
     sorted_e = sorted(entries, key=lambda e: e["avg_si_q"], reverse=True)
@@ -245,7 +254,7 @@ def build_leaderboard_chart(entries: list, out_path: str) -> None:
     # Status badge on bar
     for bar, entry in zip(bars, ranked):
         badge = "[*] GOLDEN" if entry["avg_si_q"] >= GOLDEN_THRESHOLD and entry["num_qubits"] >= MIN_QUBITS else \
-                "[SIM]"      if "Simulation" in entry["platform"] or "Simulation" in entry.get("notes", "") else \
+                "[SIM]"      if is_sim(entry) else \
                 "[<40q]"     if entry["num_qubits"] < MIN_QUBITS else ""
         if badge:
             ax_main.text(bar.get_width() + 0.012, bar.get_y() + bar.get_height() / 2,
@@ -319,8 +328,7 @@ def build_leaderboard_chart(entries: list, out_path: str) -> None:
 
 def write_challenge_report(entries: list, out_path: str) -> None:
     ranked = rank_entries(entries)
-    hw_ranked = [e for e in ranked if "Simulation" not in e["platform"]
-                 and "sim" not in e.get("source", "").lower()]
+    hw_ranked = [e for e in ranked if not is_sim(e)]
     now    = datetime.date.today().isoformat()
     golden = [e for e in ranked if e["avg_si_q"] >= GOLDEN_THRESHOLD
                                 and e["num_qubits"] >= MIN_QUBITS]
@@ -377,8 +385,7 @@ def write_challenge_report(entries: list, out_path: str) -> None:
     ]
 
     for e in ranked:
-        sim_tag = " [SIM]" if "Simulation" in e["platform"] or \
-                              "sim" in e.get("source","").lower() else ""
+        sim_tag = " [SIM]" if is_sim(e) else ""
         golden_tag = " [GOLDEN]" if e["avg_si_q"] >= GOLDEN_THRESHOLD and \
                               e["num_qubits"] >= MIN_QUBITS and not sim_tag else ""
         lines.append(
@@ -392,8 +399,7 @@ def write_challenge_report(entries: list, out_path: str) -> None:
         "  CURRENT STATUS:",
     ]
     # Only real hardware counts for CHALLENGE MET (exclude simulations)
-    hw_golden = [e for e in golden if "Simulation" not in e["platform"]
-                 and "sim" not in e.get("source", "").lower()]
+    hw_golden = [e for e in golden if not is_sim(e)]
     if hw_golden:
         lines += [
             f"  [MET] CHALLENGE MET by: {', '.join(e['platform'] for e in hw_golden)}",
@@ -511,7 +517,7 @@ def main():
     print(f"\n[*] Current leader: #{ranked[0]['rank']} {ranked[0]['platform']} "
           f"-- SI_Q = {ranked[0]['avg_si_q']:.4f}")
     print(f"[*] Hardware gap to Golden Ratio: "
-          f"{GOLDEN_THRESHOLD - max(e['avg_si_q'] for e in ranked if 'Simulation' not in e['platform']):.4f}")
+          f"{GOLDEN_THRESHOLD - max(e['avg_si_q'] for e in ranked if not is_sim(e)):.4f}")
 
 
 if __name__ == "__main__":

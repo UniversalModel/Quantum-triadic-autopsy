@@ -6,6 +6,7 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18475832-blue)](https://doi.org/10.5281/zenodo.18475832)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org)
+[![CI](https://github.com/UniversalModel/Quantum-triadic-autopsy/actions/workflows/ci.yml/badge.svg)](https://github.com/UniversalModel/Quantum-triadic-autopsy/actions/workflows/ci.yml)
 [![SI_Q Challenge](https://img.shields.io/badge/Challenge-0.618%20Golden%20Ratio-gold)](https://github.com/UniversalModel/Quantum-triadic-autopsy#the-0618-golden-ratio-challenge)
 
 ---

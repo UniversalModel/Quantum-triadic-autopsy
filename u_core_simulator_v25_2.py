@@ -30,7 +30,12 @@ U-Theory (Form, Position, Action):
 References: V25_QUANTUM_LEAP_BLUEPRINT.md
 """
 
+import sys
 import numpy as np
+import matplotlib
+_SHOW_PLOTS = "--no-show" not in sys.argv
+if not _SHOW_PLOTS:
+    matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import networkx as nx
 from typing import Dict, List, Tuple
@@ -391,7 +396,9 @@ def plot_topology(G: nx.Graph, pos: Dict, title: str = "U-Core QPU Topology v25.
     out_path = 'U_Core_Topology_V25_2.png'
     plt.savefig(out_path, dpi=200)
     print(f"[INFO] Topology plot saved -> {out_path}")
-    plt.show()
+    if _SHOW_PLOTS:
+        plt.show()
+
 
 def plot_uscore_heatmap(G: nx.Graph, pos: Dict, title: str = "U-Core QPU U-Score Heatmap v25.2"):
     """Render the concentric QPU graph with nodes colored by their U-Score."""
@@ -426,7 +433,8 @@ def plot_uscore_heatmap(G: nx.Graph, pos: Dict, title: str = "U-Core QPU U-Score
     out_path = 'U_Core_Heatmap_V25_2.png'
     plt.savefig(out_path, dpi=200)
     print(f"[INFO] Heatmap plot saved -> {out_path}")
-    plt.show()
+    if _SHOW_PLOTS:
+        plt.show()
 
 
 # ============================================================
@@ -530,7 +538,8 @@ class SIQMonitor:
         plt.tight_layout()
         plt.savefig(save_path, dpi=200)
         print(f"[INFO] SI_Q timeline saved -> {save_path}")
-        plt.show()
+        if _SHOW_PLOTS:
+            plt.show()
 
 
 # ============================================================
