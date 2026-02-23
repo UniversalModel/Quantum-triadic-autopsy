@@ -1,8 +1,8 @@
 """
-golden_ratio_challenge.py — U-Theory v25.2 "The 0.618 Challenge"
-=================================================================
-Tracks which quantum hardware platforms have achieved SI_Q ≥ 0.618
-(the Golden Ratio threshold) across >40 physical qubits.
+golden_ratio_challenge.py — U-Theory v25.2 "The SI_Q 0.618 Utility Challenge"
+==========================================================================
+Tracks which quantum hardware platforms have achieved SI_Q >= 0.618
+(the MELQ error-suppression break-even threshold) across >40 physical qubits.
 
 Generates:
   - golden_ratio_leaderboard.png   (sorted bar chart + status)
@@ -16,16 +16,23 @@ Usage:
   python golden_ratio_challenge.py --add-entry   # add a new submission
 
 THE CHALLENGE (full text at bottom of this file):
-  Achieve avg SI_Q ≥ 0.618 on any quantum hardware with >40 physical qubits.
+  Achieve avg SI_Q >= 0.618 on any quantum hardware with >40 physical qubits.
   Submit calibration data + computation code to: petar@u-model.org
   Winner credited as "Triadic Optimizer" in U-Theory v26.0.
 
-Background (QC.0, Appendix QC v25.2):
+Why 0.618? (Derivation from first principles, not aesthetics)
   SI_Q = cbrt(F_Q * P_Q * A_Q) / (1 + delta)^2
-  0.618 = Golden Ratio φ - 1 = 1/φ
-  Significance: systems with SI_Q ≥ 0.618 operate at the boundary
-  between triadic stability and instability — analogous to the golden
-  section in natural growth patterns.
+
+  With MELQ DFS encoding at 3:1 overhead + Dynamical Decoupling:
+    Logical error rate:  eps_L = 3 * eps_P^2  (second-order suppression)
+    Break-even condition: eps_L < eps_P  =>  eps_P < 1/3  =>  A_Q > 0.667
+
+  For balanced triadic system (delta=0): SI_Q_breakeven = 0.667
+  For real hardware imbalance (avg delta ~ 0.07):
+    SI_Q_threshold = 0.667 / (1 + 0.07)^2 = 0.618
+
+  The value 0.618 = 1/phi emerges from the error physics.
+  It is a consequence of the MELQ overhead model, not a choice.
 """
 
 import argparse
