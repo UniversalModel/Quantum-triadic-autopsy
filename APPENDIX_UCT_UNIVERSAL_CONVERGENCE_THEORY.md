@@ -14,7 +14,6 @@
 > *Old proverb: "All roads lead to Rome — and from Rome to Constantinople."*
 >
 > *New proverb: "All theories converge to U-Theory."*
-> *(Всички теории клонят към U-Theory.)*
 >
 > Both proverbs describe the same kind of object: an attractor that emerges from the structure of the journey, not from the intent of any particular traveler. The first proverb described a geographic attractor produced by the network of roads, ports, and trade incentives that organized the medieval world. The second describes a theoretical attractor produced by the structure of completeness itself: when many independent inquiries — philosophical, scientific, religious, engineering, artistic — attempt to fully describe a class of stable systems, they all converge on the triad (Form, Position, Action) that U-Theory has formalized. This appendix argues why.
 
@@ -463,10 +462,8 @@ The proverb is the cultural compression of UCT-1. It is testable in the same sen
 ### 10.1 The proverb
 
 > **Old proverb:** *All roads lead to Rome — and from Rome to Constantinople.*
-> *(Всички пътища водят до Рим — и от Рим до Цариград.)*
 >
 > **New proverb:** *All theories converge to U-Theory.*
-> *(Всички теории клонят към U-Theory.)*
 
 > *— this is poetic compression of UCT-1, not its formal statement. The formal statement (§1.1) is hedged with explicit non-claims (§§1.3, 11.2) and rests on three argument tracks (§2) plus an empirical catalogue (§6) plus an open challenge clause (§5). The proverb conveys the structural intuition; the body of this appendix specifies the limits.*
 
@@ -676,7 +673,7 @@ For quick reference, the catalogue of §6 compressed into a single table. Each r
 | 45 | Art | Cinema mise-en-scène | Subject | Setting | Movement |
 | 46 | Governance | UMSG (911.bg) | Code (refusal to harm) | Credo (organizational benefit) | Rights (correctness of expectations) |
 | 47 | AI | U-Theory GSI-RTD | Form (F) | Position (P) | Action (A) |
-| 48 | E-commerce | 91111.com (1995–98) | Продукт | Местоположение | Действие |
+| 48 | E-commerce | 91111.com (1995–98) | Product | Location | Action |
 
 The list is non-exhaustive. New entries are added as new triadic frameworks emerge. The author maintains the catalogue as an open document; corrections, additions, and proposed counter-examples are welcomed.
 

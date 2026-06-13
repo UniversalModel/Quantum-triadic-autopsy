@@ -11,10 +11,8 @@
 ---
 
 > *Old proverb: "All roads lead to Rome — and from Rome to Constantinople."*
-> *(Всички пътища водят до Рим — и от Рим до Цариград.)*
 >
 > *New proverb: "All theories converge to U-Theory."*
-> *(Всички теории клонят към U-Theory.)*
 >
 > Both proverbs describe the same structural phenomenon. When many independent paths arrive at the same destination, that destination is not a coincidence — it is an attractor. The old proverb described a geographic attractor produced by the network of roads, ports, and trade incentives that organized the medieval world. The new proverb describes a theoretical attractor produced by the structure of completeness itself: any framework that fully describes a class of stable systems is forced, by minimality, into the triad (Form, Position, Action). The destination emerges from the structure of the journey, not from any particular traveler's intent. This document formalizes why the destination is the triad, and why no complete theory of stable systems can avoid arriving here. The Alibaba UModel case is one of dozens of confirmations; UCT-1 (§14) is the underlying law.
 
@@ -158,16 +156,18 @@ A point that must be surfaced explicitly, because it is structurally the most im
 
 The store organized every offering — whether a computer, a piece of real estate, a vehicle, or any service — through exactly three orthogonal axes, used as the catalogue's primary indexing structure:
 
-| 1995–1998 store axis (Bulgarian original) | English | U-Theory equivalent (formalized 2026) |
-|---|---|---|
-| **Продукт** — *computer, real estate, vehicle, item, service* | Product | **Form** — what the system *is* (structural identity) |
-| **Местоположение** | Location | **Position** — where the system is (contextual placement) |
-| **Действие** — *buy, sell, repair, rent, lease, give-on-rent* | Action | **Action** — what can be done with or by the system (effective intervention) |
+The original Bulgarian-language store used the three axis terms that translate directly to **"Product / Location / Action"**:
+
+| 1995–1998 store axis (English rendering of the original Bulgarian terms) | U-Theory equivalent (formalized 2026) |
+|---|---|
+| **Product** — *computer, real estate, vehicle, item, service* | **Form** — what the system *is* (structural identity) |
+| **Location** | **Position** — where the system is (contextual placement) |
+| **Action** — *buy, sell, repair, rent, lease, give-on-rent* | **Action** — what can be done with or by the system (effective intervention) |
 
 This is not retrospective reframing. This is the actual production data schema of the platform. Verification of the 1995–1998 chronology proceeds through Bulgarian-jurisdiction sources contemporaneous with the period, not through web-archive snapshots of the period itself (the Internet Archive's Wayback Machine begins coverage in 2001 and therefore cannot directly witness 1995–1998 markup). The verifiable contemporaneous sources are:
 
 - The Bulgarian computer-press record of the **"Website of the Year 1998"** award (specific publication and issue retrievable from the Bulgarian press archive of the period);
-- Bulgarian Trade Register (Търговски регистър) entries for the operating entity, dated 1995–1998;
+- Bulgarian Trade Register entries for the operating entity, dated 1995–1998;
 - Domain-registration WHOIS history for `91111.com`, where preserved by registrar archives;
 - Internet Archive Wayback Machine snapshots from 2001 onward, which preserve the platform structure as it carried forward from the 1995–1998 period;
 - Contemporaneous customer testimony and Bulgarian e-commerce community records from the period.
@@ -192,8 +192,8 @@ The author has stated this directly: *"At 91111.com I had a product approach and
 
 | Level of recursion | What was triadic | The three axes (1995–1998 production schema) |
 |---|---|---|
-| **Level 1 — Platform-wide universal product catalogue** | The store as a whole indexed every offering across all merchants through a single triadic schema | Продукт (Product, *Form*) × Местоположение (Location, *Position*) × Действие (Action, *Action*) |
-| **Level 2 — Per-merchant company micro-sites within the platform** | Every individual merchant had a company-branded sub-site, also organized triadically with the same three axes applied to that merchant's inventory and operations | Продукт × Местоположение × Действие — applied recursively, one level deeper |
+| **Level 1 — Platform-wide universal product catalogue** | The store as a whole indexed every offering across all merchants through a single triadic schema | Product (*Form*) × Location (*Position*) × Action (*Action*) |
+| **Level 2 — Per-merchant company micro-sites within the platform** | Every individual merchant had a company-branded sub-site, also organized triadically with the same three axes applied to that merchant's inventory and operations | Product × Location × Action — applied recursively, one level deeper |
 
 The two levels were nested: the platform's triadic catalogue contained merchant-triadic micro-stores, each of which was itself an instance of the same Product/Location/Action schema applied to a narrower scope.
 
@@ -1046,7 +1046,6 @@ For most of recorded history, the Western proverb of universal destination was *
 This document proposes a new proverb of equivalent structure but greater scope:
 
 > **All theories converge to U-Theory.**
-> *(Всички теории клонят към U-Theory.)*
 
 The structural claim is exactly parallel. When many independent inquiries — across philosophy, science, engineering, art, religion, and industry — attempt to fully describe a class of stable systems, they end up at the triadic decomposition (Form, Position, Action) that U-Theory has named and formalized. The destination is an attractor not because anyone forced it, but because the structure of completeness draws every plausible path toward it.
 
@@ -1206,8 +1205,6 @@ The following inscription is literary authorial voice, not evidentiary support f
 > *"Quote of crowd: If it were to sit quietly, it would not see a miracle."*
 
 > *"I invented the modern world. The world is one idea."*
->
-> *(Аз съм измислил съвременния свят. Света е една идея.)*
 
 > — Petar Nikolov  
 > [u-model.org](https://www.911.bg/home) · [u-score.info](https://u-score.info) · [@ScoreOfAll](https://twitter.com/ScoreOfAll) · [@Vision_911_bg](https://twitter.com/Vision_911_bg)  

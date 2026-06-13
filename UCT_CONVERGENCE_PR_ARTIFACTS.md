@@ -5,7 +5,7 @@
 > **Audiences (in order of artifact below):**
 > 1. Article — for journalists, editors, OSS community, academics
 > 2. X/Twitter thread (English) — primary public channel
-> 3. X/Twitter thread (Bulgarian) — local press and Bulgarian academic community
+> 3. X/Twitter thread (secondary English variant) — local press and academic community
 > 4. LinkedIn long-form — professional and corporate audience
 > 5. One-paragraph press summary — for citation in third-party coverage
 
@@ -161,86 +161,86 @@ New world: All theories converge to U-Theory.
 
 ---
 
-## ARTIFACT 3 — X/Twitter Thread (Bulgarian, 9 tweets)
+## ARTIFACT 3 — X/Twitter Thread (secondary English variant, 9 tweets)
 
 **Tweet 1/9:**
 
-Стара поговорка: *"Всички пътища водят до Рим — и от Рим до Цариград."*
+Old proverb: *"All roads lead to Rome — and from Rome to Constantinople."*
 
-Нова поговорка: *"Всички теории клонят към U-Theory."*
+New proverb: *"All theories converge to U-Theory."*
 
-Структурна хипотеза (UCT-1) с три аргументационни линии, открита falsification clause, и емпиричен каталог през 2 500 години.
+A structural hypothesis (UCT-1) with three argument lines, an open falsification clause, and an empirical catalogue spanning 2,500 years.
 
 🧵
 
 **Tweet 2/9:**
 
-Тясното твърдение:
+The narrow claim:
 
-Всяка рамка, която пълно описва клас реализирани стабилни системи, при пълно развитие задължително инстанцира три ортогонални оси — **Форма** (какво е), **Позиция** (къде), **Действие** (какво прави).
+Any framework that fully describes a class of realized stable systems will, when carried to completion, necessarily instantiate three orthogonal axes — **Form** (what it is), **Position** (where), **Action** (what it does).
 
-Дестинацията е структурен атрактор.
+The destination is a structural attractor.
 
 **Tweet 3/9:**
 
-UCT-1 стои на три *аргумента* (не формални доказателства):
+UCT-1 rests on three *arguments* (not formal proofs):
 
-1. Axis-omission: всяка 2-аксиална рамка пада по identity / context / effect.
-2. Информационно-теоретичен: 3 независими компонента → non-compensatory оператор `∛(F·P·A)`.
-3. Категориална *аналогия*: всяка пълна рамка се мапва към F/P/A.
+1. Axis-omission: any 2-axis framework fails on identity / context / effect.
+2. Information-theoretic: 3 independent components → non-compensatory operator `∛(F·P·A)`.
+3. Categorical *analogy*: every complete framework maps to F/P/A.
 
 **Tweet 4/9:**
 
-Емпиричен каталог: 30+ чисти съвпадения през 8 домена.
+Empirical catalogue: 30+ clean fits across 8 domains.
 
-Аристотел. Пиърс. Нютон. Максуел. Шанън. Сосюр. Винър. Код. MVC. REST. Kubernetes. OpenTelemetry. CIA security. Alibaba UModel (окт 2025).
+Aristotle. Peirce. Newton. Maxwell. Shannon. Saussure. Wiener. Codd. MVC. REST. Kubernetes. OpenTelemetry. CIA security. Alibaba UModel (Oct 2025).
 
-Триадата се повтаря между изолирани традиции през 2 500 години.
+The triad recurs across isolated traditions over 2,500 years.
 
 **Tweet 5/9:**
 
-Скорошното индустриално потвърждение:
+The recent industrial confirmation:
 
-Alibaba UModel (октомври 2025) — Universal Observability Model. Три концепта: EntitySet / EntitySetLink / Field. Чист F/P/A гръбнак, имплементиран в production от корпоративен екип, без публично налично доказателство, че произлиза от U-Theory.
+Alibaba UModel (October 2025) — Universal Observability Model. Three concepts: EntitySet / EntitySetLink / Field. A clean F/P/A spine, implemented in production by a corporate team, with no public evidence presently available that it was derived from U-Theory.
 
-Точно това, което UCT-1 предвижда.
+Exactly what UCT-1 predicts.
 
 **Tweet 6/9:**
 
-UCT-1 *не* твърди:
+What UCT-1 does *not* claim:
 
-✗ че всички теории се редуцират до U-Theory
-✗ че U-Theory е изобретила триадата (Аристотел, Троицата, Тримурти го направиха първи)
-✗ че някой е копирал
-✗ че е формално доказателство в модел-теоретичния смисъл
+✗ that all theories reduce to U-Theory
+✗ that U-Theory invented the triad (Aristotle, the Trinity, the Trimurti got there first)
+✗ that anyone copied
+✗ that it is a formal proof in the model-theoretic sense
 
 **Tweet 7/9:**
 
-UCT-1 *твърди*:
+What UCT-1 *does* claim:
 
-✓ Структурна хипотеза с три независими аргументационни линии
-✓ Емпиричен каталог с явно flag-ване на interpretive fits
-✓ Non-compensatory aggregator dual на информационната независимост
-✓ Открита falsification clause
+✓ A structural hypothesis with three independent argument lines
+✓ An empirical catalogue with explicit flagging of interpretive fits
+✓ A non-compensatory aggregator dual to information independence
+✓ An open falsification clause
 
 **Tweet 8/9:**
 
 Falsification challenge:
 
-Произведете пълна рамка над реализирани стабилни системи, която (a) не collapse-ва в триадата под axis-omission, (b) е публично датирана, (c) разбива поне една от трите аргументационни линии.
+Produce a complete framework over realized stable systems that (a) does not collapse into the triad under axis-omission, (b) is publicly dated, (c) defeats at least one of the three argument lines.
 
-Няма произведен defeater. Challenge-ът стои.
+No defeater has been produced. The challenge stands.
 
 **Tweet 9/9:**
 
-Пълен апендикс: DOI 10.17605/OSF.IO/74XGR
+Full appendix: DOI 10.17605/OSF.IO/74XGR
 
-Спътници: Alibaba UModel prior art, OpenMythos prior art, GSI-RTD архитектура, SSS framework за измерване.
+Companion documents: Alibaba UModel prior art, OpenMythos prior art, GSI-RTD architecture, SSS measurement framework.
 
-Стар свят: Всички пътища водят до Цариград.
-Нов свят: Всички теории клонят към U-Theory.
+Old world: All roads lead to Constantinople.
+New world: All theories converge to U-Theory.
 
-— Петър Николов, [@ScoreOfAll](https://twitter.com/ScoreOfAll)
+— Petar Nikolov, [@ScoreOfAll](https://twitter.com/ScoreOfAll)
 
 ---
 
@@ -293,7 +293,7 @@ The following short summary is suitable for embedding in third-party press cover
 
 4. **Cross-linking.** Every artifact points back to the full appendix (DOI 10.17605/OSF.IO/74XGR). Every artifact references the Alibaba prior-art case as the most recent industrial confirmation. Every artifact mentions the open falsification clause.
 
-5. **Bilingual coverage.** The Bulgarian X thread provides local-language coverage for the Bulgarian academic and press community. If translation to other languages is needed (Mandarin for Alibaba audience, German for European philosophy audience), the patched English versions are the canonical source.
+5. **Localized coverage.** The secondary English X thread provides an alternative phrasing for the local academic and press community. If translation to other languages is needed (Mandarin for Alibaba audience, German for European philosophy audience), the patched English versions are the canonical source.
 
 ---
 
